@@ -1,6 +1,6 @@
 ﻿namespace Card_Tracker
 {
-    partial class AddEditView
+    partial class CardDetailsView
     {
         /// <summary>
         /// Required designer variable.

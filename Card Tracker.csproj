@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditView.cs">
+    <Compile Include="CardDetailsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditView.Designer.cs">
-      <DependentUpon>AddEditView.cs</DependentUpon>
+    <Compile Include="CardDetailsView.Designer.cs">
+      <DependentUpon>CardDetailsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Card.cs" />
     <Compile Include="MainView.cs">

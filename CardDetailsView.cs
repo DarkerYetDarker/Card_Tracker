@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Card_Tracker
 {
-    public partial class AddEditView : Form
+    public partial class CardDetailsView : Form
     {
-        public AddEditView()
+        public CardDetailsView()
         {
             InitializeComponent();
         }
