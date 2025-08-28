@@ -24,7 +24,7 @@ namespace Card_Tracker
             InitializeComponent();
             DBcards = new List<Card>();
             PlayedPile = new List<Card>();
-            /**/
+            /*
             List<string> color = new List<string>();
             Card s = new Card(0, "Test Card", "MTG", "First Strike", "12/12", color);
             DBcards.Add(s);
@@ -41,8 +41,8 @@ namespace Card_Tracker
             s = new Card(0, "Tron Card", "MTG", "First Strike", "12/12", color);
             DBcards.Add(s);
             uxCardDataBaseList.Items.Add(s.Name);
-            
-            //OpenReadJsonFile();
+            */
+            OpenReadJsonFile();
         }
 
         /// <summary>
@@ -186,28 +186,30 @@ namespace Card_Tracker
         /// </summary>
         public void OpenReadJsonFile()
         {
-            string filePath = "C:\\Users\\nster\\OneDrive\\Documents\\MTGJSON\\EOE.json";
+            /*
+             * EOE has 266 cards
+             * 
+             * 
+             * 
+             */
+            string filePath = "";
             string jsonString = File.ReadAllText(filePath);
 
-            using (JsonDocument doc = JsonDocument.Parse(jsonString))
+            var options = new JsonSerializerOptions
             {
-                JsonElement root = doc.RootElement;
-                Card mtg_Card = new Card();
-                foreach (JsonElement element in root.EnumerateArray())
-                {
-                    mtg_Card.Id = element.GetProperty("number").GetInt32();
-                    mtg_Card.Name = element.GetProperty("name").GetString();
-                    mtg_Card.Description = element.GetProperty("text").GetString();
-                    mtg_Card.Type = element.GetProperty("type").GetString();
-                    mtg_Card.Stats += element.GetProperty("power").GetString();
-                    mtg_Card.Stats += "/";
-                    mtg_Card.Stats += element.GetProperty("toughness").GetString();
-                    mtg_Card.Cost += element.GetProperty("manaCost").GetString();
-                    //string c = element.GetProperty("colors").GetString();
-                    DBcards.Add(mtg_Card);
+                PropertyNameCaseInsensitive = true
+            };
 
+            Root root = JsonSerializer.Deserialize<Root>(jsonString, options);
+
+            foreach (var card in root.Data.Cards)
+            {
+                //THIS isn't perfect but it is the best i could come up with concurrently
+                if (DBcards.Count < 266)
+                {
+                    DBcards.Add(card);
                 }
-                doc.Dispose();
+                
             }
             UpdateView();
         }
