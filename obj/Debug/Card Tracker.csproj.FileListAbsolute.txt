@@ -1,0 +1,33 @@
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\Card Tracker.exe.config
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\Card Tracker.exe
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\Card Tracker.pdb
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card Tracker.csproj.AssemblyReference.cache
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card_Tracker.MainView.resources
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card_Tracker.Properties.Resources.resources
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card Tracker.csproj.GenerateResource.cache
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card Tracker.csproj.CoreCompileInputs.cache
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card Tracker.exe
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card Tracker.pdb
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card Tracker.exe.config
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Buffers.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.IO.Pipelines.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Memory.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Text.Json.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.ValueTuple.dll
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Buffers.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.IO.Pipelines.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Memory.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Text.Json.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\nster\Source\Repos\Card_Tracker\bin\Debug\System.ValueTuple.xml
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card_Tracker.CardDetailsView.resources
+C:\Users\nster\Source\Repos\Card_Tracker\obj\Debug\Card Tra.3951769C.Up2Date
