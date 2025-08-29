@@ -24,24 +24,6 @@ namespace Card_Tracker
             InitializeComponent();
             DBcards = new List<Card>();
             PlayedPile = new List<Card>();
-            /*
-            List<string> color = new List<string>();
-            Card s = new Card(0, "Test Card", "MTG", "First Strike", "12/12", color);
-            DBcards.Add(s);
-            uxCardDataBaseList.Items.Add(s.Name);
-            s = new Card(0, "Text Card", "MTG", "First Strike", "12/12", color);
-            DBcards.Add(s);
-            uxCardDataBaseList.Items.Add(s.Name);
-            s = new Card(0, "Temp Card", "MTG", "First Strike", "12/12", color);
-            DBcards.Add(s);
-            uxCardDataBaseList.Items.Add(s.Name);
-            s = new Card(0, "Target Card", "MTG", "First Strike", "12/12", color);
-            DBcards.Add(s);
-            uxCardDataBaseList.Items.Add(s.Name);
-            s = new Card(0, "Tron Card", "MTG", "First Strike", "12/12", color);
-            DBcards.Add(s);
-            uxCardDataBaseList.Items.Add(s.Name);
-            */
             OpenReadJsonFile();
         }
 
@@ -52,6 +34,7 @@ namespace Card_Tracker
         /// <param name="e">Event Args</param>
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
+            //maybe implement keyword search
             string search_text = uxCardSearchTextBox.Text;
             search_text = search_text.ToLower();
             //search_text
@@ -86,11 +69,14 @@ namespace Card_Tracker
             }
             uxCardDataBaseList.SelectedItem = null;
             uxPlaysButton.Enabled = false;
+            uxViewCardButton.Enabled = false;
+
         }
 
         private void uxPredictButton_Click(object sender, EventArgs e)
         {
-
+            uxPlaysButton.Enabled = false;
+            uxViewCardButton.Enabled = false;
         }
 
         private void uxViewCardButton_Click(object sender, EventArgs e)
@@ -98,14 +84,29 @@ namespace Card_Tracker
             //switch to AddEditView
             Card card = new Card();
 
-            if (uxCardSearchTextBox.Text.Equals(""))
+            string name = "";
+
+            if (uxCardDataBaseList.SelectedItem != null)
             {
-                //switch to AddEditView
+                name = uxCardDataBaseList.SelectedItem.ToString();
             }
             else
             {
-                card.Name = uxCardSearchTextBox.Text;
+                name = uxPlayedCards.SelectedItem.ToString();
             }
+
+            foreach (Card card2 in DBcards)
+            {
+                if (card2.Name.Equals(name))
+                {
+                    card = card2;
+                    break;
+                }
+            }
+
+            CardDetailsView detailsView = new CardDetailsView(card);
+            detailsView.ShowDialog();
+            
         }
 
         private void uxPlayedCardButton_Click(object sender, EventArgs e)
@@ -123,6 +124,7 @@ namespace Card_Tracker
             }
             UpdateView();
             uxPlaysButton.Enabled = false;
+            uxViewCardButton.Enabled = false;
         }
 
         /// <summary>
@@ -136,11 +138,13 @@ namespace Card_Tracker
             if (uxCardDataBaseList.SelectedItem != null)
             {
                 uxPlaysButton.Enabled = true;
+                uxViewCardButton.Enabled = true;
                 uxPlayedCards.SelectedItem = null;
             }
             else
             {
                 uxPlaysButton.Enabled = false;
+                uxViewCardButton.Enabled = false;
             }
         }
 
@@ -155,6 +159,7 @@ namespace Card_Tracker
             {
                 uxCardDataBaseList.SelectedItem = null;
                 uxPlaysButton.Enabled = false;
+                uxViewCardButton.Enabled = true;
             }
             
         }
@@ -205,7 +210,23 @@ namespace Card_Tracker
             foreach (var card in root.Data.Cards)
             {
                 //THIS isn't perfect but it is the best i could come up with concurrently
+                /*
                 if (DBcards.Count < 266)
+                {
+                    DBcards.Add(card);
+                }
+                */
+                bool unique = true;
+                foreach (Card dupe in DBcards)
+                {
+                    if (dupe.Name.Equals(card.Name))
+                    {
+                        unique = false;
+                        break;
+                    }
+                }
+
+                if (unique)
                 {
                     DBcards.Add(card);
                 }

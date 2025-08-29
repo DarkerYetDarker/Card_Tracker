@@ -41,11 +41,12 @@
             // 
             // uxCardDataBaseList
             // 
+            this.uxCardDataBaseList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uxCardDataBaseList.FormattingEnabled = true;
-            this.uxCardDataBaseList.ItemHeight = 16;
+            this.uxCardDataBaseList.ItemHeight = 25;
             this.uxCardDataBaseList.Location = new System.Drawing.Point(28, 41);
             this.uxCardDataBaseList.Name = "uxCardDataBaseList";
-            this.uxCardDataBaseList.Size = new System.Drawing.Size(397, 468);
+            this.uxCardDataBaseList.Size = new System.Drawing.Size(397, 454);
             this.uxCardDataBaseList.TabIndex = 0;
             this.uxCardDataBaseList.SelectedIndexChanged += new System.EventHandler(this.uxCardDataBaseList_SelectedIndexChanged);
             // 
@@ -106,11 +107,12 @@
             // 
             // uxPlayedCards
             // 
+            this.uxPlayedCards.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uxPlayedCards.FormattingEnabled = true;
-            this.uxPlayedCards.ItemHeight = 16;
+            this.uxPlayedCards.ItemHeight = 25;
             this.uxPlayedCards.Location = new System.Drawing.Point(519, 41);
             this.uxPlayedCards.Name = "uxPlayedCards";
-            this.uxPlayedCards.Size = new System.Drawing.Size(437, 468);
+            this.uxPlayedCards.Size = new System.Drawing.Size(437, 454);
             this.uxPlayedCards.TabIndex = 6;
             this.uxPlayedCards.SelectedIndexChanged += new System.EventHandler(this.uxPlayedCards_SelectedIndexChanged);
             // 
