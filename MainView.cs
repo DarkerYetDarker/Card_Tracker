@@ -24,7 +24,8 @@ namespace Card_Tracker
             InitializeComponent();
             DBcards = new List<Card>();
             PlayedPile = new List<Card>();
-            OpenReadJsonFile();
+            ReadToDatabaseFromFile();
+            //OpenReadJsonFile();
         }
 
         /// <summary>
@@ -73,12 +74,22 @@ namespace Card_Tracker
 
         }
 
+        /// <summary>
+        /// Attempts to predict what your opponent will play next
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxPredictButton_Click(object sender, EventArgs e)
         {
             uxPlaysButton.Enabled = false;
             uxViewCardButton.Enabled = false;
         }
 
+        /// <summary>
+        /// Views the selected card
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxViewCardButton_Click(object sender, EventArgs e)
         {
             //switch to AddEditView
@@ -109,6 +120,11 @@ namespace Card_Tracker
             
         }
 
+        /// <summary>
+        /// Cards your oponent plays
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxPlayedCardButton_Click(object sender, EventArgs e)
         {
             //GRAB selected item
@@ -181,8 +197,38 @@ namespace Card_Tracker
             }
         }
 
-        public void SaveDatabaseToFile()
+        /// <summary>
+        /// Saves all the Data to a json file
+        /// </summary>
+        private void SaveDatabaseToFile()
         {
+           
+            string filePath = "..\\..\\..\\..\\Card_Data.json";
+
+            JsonSerializerOptions options = new JsonSerializerOptions() { WriteIndented = true };
+
+            string jsonString = JsonSerializer.Serialize(DBcards, options);
+
+            File.WriteAllText(filePath, jsonString);
+        }
+
+        /// <summary>
+        /// Reads from the json file and puts it into program
+        /// </summary>
+        private void ReadToDatabaseFromFile()
+        {
+            string filePath = "..\\..\\..\\..\\Card_Data.json";
+
+            if (File.Exists(filePath))
+            {
+                string jsonString = File.ReadAllText(filePath);
+
+                if (string.IsNullOrEmpty(jsonString) == false)
+                {
+                    DBcards = JsonSerializer.Deserialize<List<Card>>(jsonString);
+                    UpdateView();
+                }
+            }
 
         }
         
@@ -197,7 +243,7 @@ namespace Card_Tracker
              * 
              * 
              */
-            string filePath = "";
+            string filePath = "C:\\Users\\nster\\OneDrive\\Documents\\MTGJSON\\YTDM.json";
             string jsonString = File.ReadAllText(filePath);
 
             var options = new JsonSerializerOptions
@@ -235,6 +281,14 @@ namespace Card_Tracker
             UpdateView();
         }
 
-        
+        /// <summary>
+        /// Happens whenever the form is closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveDatabaseToFile();
+        }
     }
 }

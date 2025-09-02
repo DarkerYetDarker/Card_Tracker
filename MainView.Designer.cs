@@ -152,6 +152,7 @@
             this.Controls.Add(this.uxCardDataBaseList);
             this.Name = "MainView";
             this.Text = "Main View";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainView_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
